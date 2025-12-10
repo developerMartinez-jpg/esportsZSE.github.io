@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ZSE Editor</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* quick admin tweaks */
+  .admin-wrap{max-width:1100px;margin:20px auto;padding:18px}
+  .admin-row{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+  .admin-row input[type=text], .admin-row input[type=url], textarea{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08)}
+  .btn{padding:10px 12px;border-radius:8px;border:0;cursor:pointer}
+  .btn.primary{background:var(--purple);color:#fff}
+  .small{max-width:220px}
+  #preview{border:1px solid rgba(0,0,0,0.06);margin-top:12px}
+</style>
+</head>
+<body>
+  <div class="admin-wrap">
+    <h1>Editor — ZSE (Local & GitHub)</h1>
+    <div class="admin-row">
+      <input id="logo" type="url" placeholder="Logo URL (direct image)">
+      <input id="mainImage" type="url" placeholder="Main roster image URL">
+    </div>
+    <div class="admin-row">
+      <input id="bgImage" type="url" placeholder="Background image URL (optional)">
+      <input id="creators" type="url" placeholder="Creators image URL (optional)">
+    </div>
+    <div class="admin-row">
+      <textarea id="about" rows="4" style="width:100%"></textarea>
+    </div>
+    <div class="admin-row">
+      <input id="discord" type="url" placeholder="Discord link" class="small">
+      <input id="tiktok" type="url" placeholder="TikTok link" class="small">
+      <input id="siteTitle" type="text" placeholder="Site title" class="small">
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button id="apply" class="btn primary">Apply (Preview)</button>
+      <button id="saveLocal" class="btn">Save locally</button>
+      <button id="export" class="btn">Export JSON</button>
+      <button id="importBtn" class="btn">Import JSON</button>
+      <button id="pushGit" class="btn">Save to GitHub</button>
+      <button id="reset" class="btn">Reset</button>
+    </div>
+
+    <div id="exportArea" style="display:none;margin-top:12px">
+      <textarea id="exportText" rows="6" style="width:100%"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button id="copyExport" class="btn">Copy</button>
+        <button id="closeExport" class="btn">Close</button>
+      </div>
+    </div>
+
+    <div id="importArea" style="display:none;margin-top:12px">
+      <textarea id="importText" rows="6" style="width:100%"></textarea>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button id="doImport" class="btn primary">Import</button>
+        <button id="closeImport" class="btn">Close</button>
+      </div>
+    </div>
+
+    <h2>Preview</h2>
+    <iframe id="preview" src="index.html" style="width:100%;height:520px;border-radius:8px"></iframe>
+  </div>
+
+<script src="admin.js"></script>
+</body>
+</html>
