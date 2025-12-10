@@ -1,48 +1,62 @@
-/* Colores de fondo: blanco y rosa */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: linear-gradient(135deg, #ffffff 50%, #ffb6c1 50%);
-    color: #333;
-    margin: 0;
-    padding: 0;
+/* style.css - professional purple/pink galaxy theme */
+:root{
+  --purple:#7b3cff;
+  --pink:#ff66b2;
+  --bg1:#f6e9ff;
+  --bg2:#fff5fb;
+  --card:#ffffffe8;
+  --muted:#6b6b7a;
+  --max-width:1100px;
+  --radius:12px;
+  --accent-gradient: linear-gradient(135deg,var(--purple),var(--pink));
+  --glass: rgba(255,255,255,0.88);
 }
 
-header {
-    background-color: #ffb6c1;
-    color: #fff;
-    padding: 20px 0;
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:28px;
+  background:
+    radial-gradient(900px 500px at 12% 18%, rgba(123,60,255,0.08), transparent 10%),
+    radial-gradient(700px 380px at 88% 78%, rgba(255,102,178,0.06), transparent 10%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+  -webkit-font-smoothing:antialiased;
 }
 
-main {
-    padding: 40px 20px;
+.site-wrap{
+  width:100%;max-width:var(--max-width);border-radius:14px;overflow:hidden;box-shadow:0 22px 60px rgba(28,16,50,0.18);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95));
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #ff69b4;
-    font-weight: bold;
-}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid rgba(0,0,0,0.04)}
+.brand{display:flex;gap:18px;align-items:center}
+.logo-wrap{width:88px;height:88px;border-radius:12px;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 8px 30px rgba(123,60,255,0.12)}
+.logo-wrap img{width:84%;height:84%;object-fit:contain;display:block}
+.brand-text h1{font-size:22px;color:#201b2b}
+.brand-text p{font-size:13px;color:var(--muted);margin-top:6px}
+.founded{font-size:13px;color:var(--muted)}
 
-button:hover {
-    background-color: #ffb6c1;
-    color: #fff;
-}
+.content{display:grid;grid-template-columns:1fr 360px;gap:22px;padding:24px}
+.left{padding:6px}
+.card{background:var(--card);padding:18px;border-radius:12px}
+.about h2{font-size:18px;margin-bottom:8px}
+.about p{color:#2b2530;line-height:1.5}
+.roster img{width:100%;max-width:560px;border-radius:12px;object-fit:cover;border:1px solid rgba(0,0,0,0.05);margin-top:12px}
 
-footer {
-    background-color: #ffb6c1;
-    color: #fff;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+.right{display:flex;flex-direction:column;gap:12px}
+.creators{height:180px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;background:#0b0b0b;color:#fff}
+.links a{display:inline-block;margin-bottom:8px;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
+.links a.discord{background:#5865F2;color:#fff}
+.links a.tiktok{background:#111;color:#fff}
 
-.intro, .features {
-    margin-bottom: 40px;
+.site-footer{padding:14px 22px;border-top:1px solid rgba(0,0,0,0.04);display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+
+/* responsive */
+@media (max-width:980px){
+  .content{grid-template-columns:1fr;padding:18px}
+  .right{order:2}
 }
